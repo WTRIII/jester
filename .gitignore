@@ -125,3 +125,10 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+.VSCODE
+.vscode 
+.VSCode 
+.VsCode 
+.vsCode 
