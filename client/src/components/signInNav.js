@@ -5,14 +5,15 @@ import SignUpForm from './signup';
 import LoginForm from './login';
 
 import Auth from '../utils/auth';
+import '../App.css';
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+    <div>
+      <Navbar variant='dark' expand='lg' className="header">
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
             {/* check this for accuracy */}
@@ -21,21 +22,18 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-                {/* check this for accuracy */}
-                Dashboard
-              </Nav.Link>
+
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
                     {/* check this for accuracy */}
-                    Dashboard
+                    poop
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link onClick={() => setShowModal(true)}>Play</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
@@ -73,7 +71,7 @@ const AppNavbar = () => {
           </Modal.Body>
         </Tab.Container>
       </Modal>
-    </>
+    </div>
   );
 };
 
