@@ -59,6 +59,10 @@ const SignupForm = () => {
       email: '',
       password: '',
     });
+
+    
+    window.location.replace('/dashboard');
+    
   };
 
   return (
