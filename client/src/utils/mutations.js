@@ -26,13 +26,13 @@ export const ADD_USER = gql`
 // ============== ^^^^ can stay
 //  =====================below must change================
 export const SAVE_BOOK = gql`
-  mutation saveBook($bookData: BookInput!) {
-    saveBook(bookData: $bookData) {
+  mutation saveBook($postData: PostInput!) {
+    saveBook(postData: $postData) {
       _id
       username
       email
-      savedBooks {
-        bookId
+      savedPosts {
+        postId
         authors
         image
         description
