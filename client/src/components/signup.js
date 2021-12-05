@@ -76,7 +76,7 @@ const SignupForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your signup!
+          There was a problem with your registration. Please try again.
         </Alert>
 
         <Form.Group>
@@ -90,7 +90,7 @@ const SignupForm = () => {
             required
           />
           <Form.Control.Feedback type="invalid">
-            Username is required!
+            A username is required.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -105,7 +105,7 @@ const SignupForm = () => {
             required
           />
           <Form.Control.Feedback type="invalid">
-            Email is required!
+            A valid email address is required.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -120,7 +120,7 @@ const SignupForm = () => {
             required
           />
           <Form.Control.Feedback type="invalid">
-            Password is required!
+            A password is required.
           </Form.Control.Feedback>
         </Form.Group>
         <Button
@@ -134,7 +134,7 @@ const SignupForm = () => {
           type="submit"
           variant="success"
         >
-          Submit
+          Register
         </Button>
       </Form>
     </>
