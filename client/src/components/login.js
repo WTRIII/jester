@@ -53,6 +53,9 @@ const LoginForm = () => {
       email: '',
       password: '',
     });
+
+    window.location.replace('/dashboard');
+
   };
 
   return (

@@ -9,6 +9,10 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import MainPage from './pages/mainpage';
+import CurrentJest from './pages/CurrentJest';
+import Dashboard from './pages/Dashboard';
+import Jests from './pages/Jests';
+
 // import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/signInNav';
 
@@ -44,6 +48,9 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={MainPage} />
+            <Route exact path="/currentjest" component={CurrentJest} />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/jests" component={Jests} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
