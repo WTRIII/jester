@@ -39,11 +39,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    savePost: async (parent, { postData }, context) => {
+    saveJest: async (parent, { jestData }, context) => {
       if (context.user) {
         const updatedUser = await Task.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { savedPosts: postData } },
+          { $push: { savedJests: jestData } },
           { new: true }
         );
 
@@ -52,11 +52,11 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    removePost: async (parent, { bookId }, context) => {
+    removeJest: async (parent, { bookId }, context) => {
       if (context.user) {
         const updatedUser = await Task.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: { bookId } } },
+          { $pull: { savedJests: { jestId } } },
           { new: true }
         );
 

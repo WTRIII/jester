@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 
-// import schema from Post.js
-const postSchema = require('./Post');
+// import schema from Jest.js
+const jestSchema = require('./Jest');
 
 const taskSchema = new Schema(
   {
@@ -11,8 +11,8 @@ const taskSchema = new Schema(
       required: true,
       unique: true,
     },
-     // set posts to be an array of data that adheres to the postSchema
-    posts: [postSchema],
+     // set jests to be an array of data that adheres to the jestSchema
+    jests: [jestSchema],
     currentTask: {
       type: Boolean,
       required: true,
@@ -34,9 +34,9 @@ const taskSchema = new Schema(
 
 
 
-// when we query a task, we'll also get another field called `postCount` with the number of saved posts we have
-taskSchema.virtual('postCount').get(function () {
-  return this.posts.length;
+// when we query a task, we'll also get another field called `jestCount` with the number of saved jests we have
+taskSchema.virtual('jestCount').get(function () {
+  return this.jests.length;
 });
 
 const Task = model('Task', taskSchema);
