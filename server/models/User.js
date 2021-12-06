@@ -2,7 +2,8 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // import schema from Book.js
-const jestSchema = require('./Jest');
+// const {Jest} = require('./Jest');
+// const {Task} = require('./Task');
 
 const userSchema = new Schema(
   {
@@ -21,6 +22,14 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    jests: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Jest"
+      }
+    ],
+ 
+     
    
   },
   // set this to use virtual below
