@@ -55,14 +55,14 @@ const Profile = () => {
         </Jumbotron>
         <Container>
           <h2>
-            {userData.jests?.length
-              ? `Viewing ${userData.jests.length} saved ${
-                  userData.jests.length === 1 ? 'Jest' : 'Jests'
+            {userData.savedJests?.length
+              ? `Viewing ${userData.savedJests.length} saved ${
+                  userData.savedJests.length === 1 ? 'Jest' : 'Jests'
                 }:`
               : 'You have no saved Jests!'}
           </h2>
           <CardColumns>
-            {userData.jests?.map((jest) => {
+            {userData.savedJests?.map((jest) => {
               return (
                 <Card key={jest.jestId} border="dark">
                   {jest.image ? (

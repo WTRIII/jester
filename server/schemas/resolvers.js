@@ -52,7 +52,7 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeJest: async (parent, { bookId }, context) => {
+    removeJest: async (parent, { jestId }, context) => {
       if (context.user) {
         const updatedUser = await Task.findOneAndUpdate(
           { _id: context.user._id },

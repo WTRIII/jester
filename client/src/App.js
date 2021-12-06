@@ -8,9 +8,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import MainPage from './pages/Mainpage1';
+import MainPage from './pages/Mainpage';
 import CurrentJest from './pages/CurrentJest';
-import Dashboard from './pages/Dashboard1';
+import Dashboard from './pages/Dashboard';
 import PastJests from './pages/PastJests';
 import Profile from './pages/Profile';
 import Rules from './pages/Rules';
