@@ -14,7 +14,11 @@ import React from 'react';
 function Dashboard() {
     return (
     <div>
-        <h1>Jester Dashboard XXX</h1>
+        <h1>Jester Dashboard </h1>
+        <h2>Past Challenges</h2>
+        <h2>Account</h2>
+        <h2>Rules</h2>
+
         
     </div>
     )
