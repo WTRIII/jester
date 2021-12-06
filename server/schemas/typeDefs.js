@@ -6,19 +6,20 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    savedJests: [Jest]
   }
 
   type Tasks {
-    taskId: ID!
-    jests: [Jest]
-    description: String
-    currentTask: Boolean!
+    _id: ID
+    dateCreated: String
+    jestTaskDescription: String
+    jestsArray: [Jest]
+    currentTask: String
   }
 
   type Jest {
+    createdBy: String
+    caption: String
     image: String
-    username: String
     likes: Int
   }
 
@@ -34,7 +35,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: Tasks
+    me: User
+    tasks: [Tasks]
   }
 
   type Mutation {

@@ -6,18 +6,23 @@ const jestSchema = require('./Jest');
 
 const taskSchema = new Schema(
   {
-    explanation: {
+    //need to fix type to date.now() to automatically add current date to db
+    dateCreated: {
+      type: String,
+    },
+    jestTaskDescription: {
       type: String,
       required: true,
-      unique: true,
+      
     },
      // set jests to be an array of data that adheres to the jestSchema
-    jests: [jestSchema],
+    jestsArray: [jestSchema],
+    //true/false is this the current active task
     currentTask: {
       type: Boolean,
-      required: true,
+      
     },
-    created: Date,
+   
    
     
   },
@@ -36,7 +41,7 @@ const taskSchema = new Schema(
 
 // when we query a task, we'll also get another field called `jestCount` with the number of saved jests we have
 taskSchema.virtual('jestCount').get(function () {
-  return this.jests.length;
+  return this.jestsArray.length;
 });
 
 const Task = model('Task', taskSchema);
