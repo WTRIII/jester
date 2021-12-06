@@ -8,6 +8,8 @@ export const QUERY_ME = gql`
       _id
       username
       email
+      jests
+      tasks
     }
   }
 `;
@@ -38,6 +40,19 @@ query {
     _id
     jestTaskDescription
     currentTask
+    jestsArray {
+      caption
+      image
+      likes
+    }
+  }
+}
+`;
+
+export const QUERY_JESTS = gql`
+query {
+  tasks {
+   
     jestsArray {
       caption
       image
