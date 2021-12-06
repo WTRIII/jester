@@ -8,7 +8,7 @@ import {
   } from 'react-bootstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_ME, QUERY_TASKS } from '../utils/queries';
+import { QUERY_ME, QUERY_TASKS, QUERY_JESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
 
@@ -95,25 +95,25 @@ const Profile = () => {
       <>
         <Jumbotron fluid className="text-light bg-dark">
           <Container>
-            <h1>Viewing {userData[0].jestTaskDescription}'s Jests!</h1>
+            <h1>Viewing {}'s Jests!</h1>
           </Container>
         </Jumbotron>
-        <Container>
-          <h2>
+        {/* <Container> */}
+          {/* <h2>
             {userData.savedJests?.length
               ? `Viewing ${userData.savedJests.length} saved ${
                   userData.savedJests.length === 1 ? 'Jest' : 'Jests'
                 }:`
               : 'You have no saved Jests!'}
-          </h2> 
-          <CardColumns>
-            {userData.map((jest) => {
-              
+          </h2>  */}
+          {/* <CardColumns>
+            {userData.map((jest, i) => {
+              console.log(jest, i)
                 return (
                   <Card key={jest._id} border="dark">
-                    {jest.image ? (
+                    {jest.jestsArray ? (
                       <Card.Img
-                        src={jest.jestsArray.image}
+                        src={}
                         alt={`The cover for ${jest.caption}`}
                         variant="top"
                       />
@@ -128,13 +128,13 @@ const Profile = () => {
                       >
                         Delete this Jest!
                       </Button> */}
-                    </Card.Body>
+                    {/* </Card.Body>
                   </Card>
                 );
                
             })}
-          </CardColumns>
-        </Container>
+          </CardColumns> */} 
+        {/* </Container> */}
       </>
     );
   };

@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Task, User } = require('../models');
+const { Task, User, Jest } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -16,6 +16,9 @@ const resolvers = {
     tasks: async () => {
      return await Task.find();
     },
+    jests: async () => {
+      return await Task.find({})
+    }
   },
 
   Mutation: {
