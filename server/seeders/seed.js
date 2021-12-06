@@ -1,5 +1,5 @@
 const db = require('../config/connection');
-const { Jest, Task } = require('../models');
+const { Task } = require('../models');
 const taskSeeds = require('./taskSeeds.json');
 
 db.once('open', async () => {
