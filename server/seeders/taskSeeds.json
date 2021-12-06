@@ -1,16 +1,16 @@
 [
   {
     "explanation": "Who has the most popular pet? Lets find out!",
-    "posts": [
+    "jests": [
       {
         "author": "originator",
-        "description": "this is my first post!",
+        "description": "this is my first jest!",
         "image": "https://us02st1.zoom.us/web_client/rnqzmq/html/externalLinkPage.html?ref=https://images.app.goo.gl/vLBefnqqzMuZCUmq8",
         "likes": "22"
       },
       {
         "author": "james1",
-        "description": "This post is gonna win!",
+        "description": "This jest is gonna win!",
         "image": "https://us02st1.zoom.us/web_client/rnqzmq/html/externalLinkPage.html?ref=https://images.app.goo.gl/vLBefnqqzMuZCUmq8",
         "likes": "11"
       }
@@ -19,7 +19,7 @@
   },
   {
     "explanation": "Who has the best car? Lets play!",
-    "posts": [
+    "jests": [
       {
         "author": "originator",
         "description": "Toyota Prius is the best car. See below.",
