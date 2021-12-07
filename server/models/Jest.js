@@ -4,12 +4,10 @@ const userSchema = require('./User');
 // This is a subdocument schema, it won't become its own model but we'll use it as the schema for the User's `savedBooks` array in User.js
 const jestSchema = new Schema({
   //username that created jest
-  createdBy: [
-    {
+  createdBy: {
       type: Schema.Types.ObjectId,
       ref: "User"
-    }
-  ],
+  },
 
   //jest image description
   caption: {
@@ -23,13 +21,12 @@ const jestSchema = new Schema({
   likes: {
     type: Number,
   },
-  //want all jests with this task id ?? incorrect?
-  taskId: [
-    {
+  //related task id
+  taskId: {
       type: Schema.Types.ObjectId,
       ref: "Task"
     }
-  ],
+  ,
  
 
   
