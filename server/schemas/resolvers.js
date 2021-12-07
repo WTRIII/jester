@@ -16,8 +16,8 @@ const resolvers = {
     tasks: async () => {
      return await Task.find();
     },
-    currentTask: async () => {
-      return await Task.find({}).populate()
+    allJests: async () => {
+      return await Jest.find({});
     }
   },
 

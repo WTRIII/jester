@@ -39,8 +39,8 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    tasks: [Tasks]
-    jests: [Jest]
+    tasks: [Task]
+    allJests: [Jest]
     currentTask: Task
   }
 
