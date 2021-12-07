@@ -5,6 +5,8 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
+      console.log("THIS IS CONTEXT");
+      console.log(context);
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
 
@@ -16,8 +18,8 @@ const resolvers = {
     tasks: async () => {
      return await Task.find();
     },
-    jests: async () => {
-      return await Task.find({})
+    currentTask: async () => {
+      return await Task.find({}).populate()
     }
   },
 
