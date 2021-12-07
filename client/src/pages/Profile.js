@@ -9,8 +9,8 @@ import {
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME, QUERY_TASKS, QUERY_JESTS } from '../utils/queries';
-import { REMOVE_JEST } from '../utils/mutations';
-import { removeJestId } from '../utils/localStorage';
+// import { REMOVE_JEST } from '../utils/mutations';
+// import { removeJestId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 
@@ -95,7 +95,7 @@ const Profile = () => {
       <>
         <Jumbotron fluid className="text-light bg-dark">
           <Container>
-            <h1>Viewing {}'s Jests!</h1>
+            <h1>Viewing {userData}'s Jests!</h1>
           </Container>
         </Jumbotron>
         {/* <Container> */}
