@@ -2,9 +2,9 @@ import { gql } from '@apollo/client';
 
 
 // =========change======================
-export const QUERY_ME = gql`
-  query me {
-    me {
+export const QUERY_USER = gql`
+  query user {
+    user {
       _id
       username
       email
@@ -14,27 +14,25 @@ export const QUERY_ME = gql`
   }
 `;
 
-
-// export const QUERY_TASKS = gql`
-//   query alltasks{
-//     tasks {
-//       taskId
-//       dateCreated
-//       jestTaskDescription
-//       currentTask
-//       jestsArray {
-//         createdBy
-//         caption
-//         image
-//         likes
-//       }
-    
-//     }
-//   }
-// `;
-
-
+// this gets all tasks
+// should it be written to exclude the current task
 export const QUERY_TASKS = gql`
+query {
+  tasks {
+    _id
+    jestTaskDescription
+    currentTask
+    jestsArray {
+      caption
+      image
+      likes
+    }
+  }
+}
+`;
+
+// need to write this to only get the current task
+export const QUERY_CURRENT_TASK = gql`
 query {
   tasks {
     _id
@@ -61,3 +59,26 @@ query {
   }
 }
 `;
+
+
+
+
+// believe we rewrote this query above, but kept this just in case.
+
+// export const QUERY_TASKS = gql`
+//   query alltasks{
+//     tasks {
+//       taskId
+//       dateCreated
+//       jestTaskDescription
+//       currentTask
+//       jestsArray {
+//         createdBy
+//         caption
+//         image
+//         likes
+//       }
+    
+//     }
+//   }
+// `;

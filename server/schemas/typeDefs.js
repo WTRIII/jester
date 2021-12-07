@@ -38,7 +38,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User
+    user: User
     tasks: [Tasks]
     jests: [Jest]
   }
