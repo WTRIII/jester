@@ -13,7 +13,7 @@ import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
-import image from '../jester2.jpg';
+// import image from '../jester2.jpg';
 
 function Profile() {
     const { loading, data } = useQuery(QUERY_JESTS);
@@ -27,11 +27,11 @@ function Profile() {
     
     const handleDeleteJest = async (jestId) => {
        // get token
-       const token = Auth.loggedIn() ? Auth.getToken() : null;
+      const token = Auth.loggedIn() ? Auth.getToken() : null;
   
-       if (!token) {
-         return false;
-       }
+      if (!token) {
+        return false;
+      }
   
       //  try {
       //    const { data } = await removeJest({
@@ -43,7 +43,7 @@ function Profile() {
       //  } catch (err) {
       //    console.error(err);
       //  }
-     };
+    };
   
     // if (loading) {
     //   return <h2>LOADING...</h2>;
@@ -114,7 +114,7 @@ function Profile() {
                   <Card key={jest._id} border="dark">
                     {jest.jestsArray ? (
                       <Card.Img
-                        src={ image }
+                        src={ jest.image }
                         alt={`The cover for ${jest.caption}`}
                         variant="top"
                       />

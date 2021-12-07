@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab, Row } from 'react-bootstrap';
 import SignUpForm from './Signup';
 import LoginForm from './Login';
-import AddJest from './AddJest';
+
+import AddJest from './AddJest'
 
 import Auth from '../utils/auth';
 import '../App.css';
@@ -28,18 +29,17 @@ const AppNavbar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-
                   <Nav.Link as={Link} to='/Profile'>
                     {/* check this for accuracy */}
                     PROFILE
                   </Nav.Link>
                   <Nav.Link as={Link} to='/CurrentTask'>
                     {/* check this for accuracy */}
-                    CURRENT TASK
+                    Current Task
                   </Nav.Link>
                   <Nav.Link as={Link} to='/PastTasks'>
                     {/* check this for accuracy */}
-                    PAST TASKS
+                    Past Tasks
                   </Nav.Link>
                   <Nav.Link as={Link} to='/Rules'>
                     {/* check this for accuracy */}

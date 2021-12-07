@@ -13,6 +13,7 @@ import CurrentTask from './pages/CurrentTask';
 import PastTasks from './pages/PastTasks';
 import Profile from './pages/Profile';
 import Rules from './pages/Rules';
+import AddJest from './components/AddJest';
 
 // import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -47,6 +48,7 @@ function App() {
       <Router>
         <>
           <Navbar />
+          <AddJest/>
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/CurrentTask" component={CurrentTask} />
