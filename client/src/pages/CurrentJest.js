@@ -16,25 +16,8 @@ function CurrentJest() {
             <p>xxxxxxx</p>
                 
             </Card>
-
-                <Card style={{backgroundImage: `url(${TestPicture}`  }} >
-                    <div className="row no-gutters" >
-                        <div className="row-md-6">
-                                <h1 className="card-title">createdBy</h1>
-                        {/* <Card.Img src= {TestPicture}  /> */}
-                        </div>
-                        {/* <div className="col-md-4"> */}
-                            <div className="card-body row-md-6" >
-                                <p className="col-sm-auto card-text"> Short jest description</p>
-                               
-                                <p className="col-sm-auto card-text">
-                                    <a className="text-muted" href="https://github.com/Mitchell-est-Robbins/Project1-TheAppenders">  Repo</a>
-                                    {/* this needs to be a button ^^^^^^ with redirect */}
-                                </p>
-                            {/* </div> */}
-                            </div>
-                    </div>
-                </Card>
+            <div > 
+               
 
                 <Card >
                     <div className="row no-gutters">
@@ -56,7 +39,7 @@ function CurrentJest() {
                     </div>
                 </Card>
 
-            
+            </div>          
         {/* </Row> */}
         </div>
     </div>
