@@ -1,24 +1,20 @@
 [
     {
-        "createdBy": "user1",
         "caption": "this is my first jest!",
         "image": "https://us02st1.zoom.us/web_client/rnqzmq/html/externalLinkPage.html?ref=https://images.app.goo.gl/vLBefnqqzMuZCUmq8",
         "likes": 22
       },    
       {   
-        "createdBy": "user3",
         "caption": "This jest is gonna win!",
         "image": "https://us02st1.zoom.us/web_client/rnqzmq/html/externalLinkPage.html?ref=https://images.app.goo.gl/vLBefnqqzMuZCUmq8",
         "likes": 11
     },
     {
-        "createdBy": "user2",
         "caption": "Toyota Prius is the best car. See below.",
         "image": "https://us02st1.zoom.us/web_client/rnqzmq/html/externalLinkPage.html?ref=https://images.app.goo.gl/51UPuSKShWvrfH3q8",
         "likes": 22
       },
       {
-        "createdBy": "user3",
         "caption": "A Lambo is objectively superior in every way. Here is mine.",
         "image": "https://us02st1.zoom.us/web_client/rnqzmq/html/externalLinkPage.html?ref=https://images.app.goo.gl/51UPuSKShWvrfH3q8",
         "likes": 11
