@@ -38,8 +38,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    me: User
-    tasks: [Task]
+    user: User
+    tasks: [Tasks]
     jests: [Jest]
     currentTask: Task
   }
