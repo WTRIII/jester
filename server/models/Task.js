@@ -16,7 +16,7 @@ const taskSchema = new Schema(
       
     },
      // set jests to be an array of data that adheres to the jestSchema
-     jestsArray: [
+     jests: [
       {
         type: Schema.Types.ObjectId,
         ref: "Jest"
@@ -46,7 +46,7 @@ const taskSchema = new Schema(
 
 // when we query a task, we'll also get another field called `jestCount` with the number of saved jests we have
 // Task.virtual('jestCount').get(function () {
-//   return this.jestsArray.length;
+//   return this.jests.length;
 // });
 
 const Task = model('Task', taskSchema);
