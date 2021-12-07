@@ -15,7 +15,7 @@ import { removeJestId } from '../utils/localStorage';
 import Auth from '../utils/auth';
 import image from '../jester2.jpg';
 
-function CurrentJests() {
+function CurrentTask() {
     const { loading, data } = useQuery(QUERY_CURRENT_TASK);
     const [removeJest, { error }] = useMutation(REMOVE_JEST);
 
@@ -106,6 +106,7 @@ function CurrentJests() {
                         }:`
                         : 'You have no saved Jests!'}
                 </h2>
+                
                 <CardColumns>
                     {userData.map((jest, i) => {
                         console.log(jest, i)
@@ -139,4 +140,4 @@ function CurrentJests() {
     );
 };
 
-export default CurrentJests
+export default CurrentTask

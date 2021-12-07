@@ -9,11 +9,11 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import MainPage from './pages/Mainpage';
-import CurrentJest from './pages/CurrentJest';
-import Dashboard from './pages/Dashboard';
-import PastJests from './pages/PastJests';
+import CurrentTask from './pages/CurrentTask';
+import PastTasks from './pages/PastTasks';
 import Profile from './pages/Profile';
 import Rules from './pages/Rules';
+import AddJest from './components/AddJest';
 
 // import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -48,11 +48,11 @@ function App() {
       <Router>
         <>
           <Navbar />
+          <AddJest/>
           <Switch>
             <Route exact path="/" component={MainPage} />
-            <Route exact path="/CurrentJest" component={CurrentJest} />
-            <Route exact path="/Dashboard" component={Dashboard} />
-            <Route exact path="/PastJests" component={PastJests} />
+            <Route exact path="/CurrentTask" component={CurrentTask} />
+            <Route exact path="/PastTasks" component={PastTasks} />
             <Route exact path="/Profile" component={Profile} />
             <Route exact path="/Rules" component={Rules} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
