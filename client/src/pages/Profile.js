@@ -95,7 +95,7 @@ const Profile = () => {
       <>
         <Jumbotron fluid className="text-light bg-dark">
           <Container>
-            <h1>Viewing {userData}'s Jests!</h1>
+            <h1>Viewing {}'s Jests!</h1>
           </Container>
         </Jumbotron>
         {/* <Container> */}
