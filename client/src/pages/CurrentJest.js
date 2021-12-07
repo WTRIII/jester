@@ -1,49 +1,142 @@
 import React from 'react';
-import { Card, Col, Row} from 'react-bootstrap';
-import TestPicture from "../imges/Hardcodedtestpic.jpg";
+import {
+    Jumbotron,
+    Container,
+    CardColumns,
+    Card,
+    Button,
+} from 'react-bootstrap';
 
-function CurrentJest() {
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_CURRENT_TASK } from '../utils/queries';
+import { REMOVE_JEST } from '../utils/mutations';
+import { removeJestId } from '../utils/localStorage';
+
+import Auth from '../utils/auth';
+import image from '../jester2.jpg';
+
+function CurrentJests() {
+    const { loading, data } = useQuery(QUERY_CURRENT_TASK);
+    const [removeJest, { error }] = useMutation(REMOVE_JEST);
+
+    const userData = data?.tasks || {};
+    console.log("hello past world");
+    console.log(userData)
+
+    // create function that accepts the book's mongo _id value as param and deletes the book from the database
+
+    const handleDeleteJest = async (jestId) => {
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            const { data } = await removeJest({
+                variables: { jestId },
+            });
+
+            // upon success, remove book's id from localStorage
+            removeJestId(jestId);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    }
+
+    //  const { jestData } = useQuery(QUERY_JESTS);
+    const jests = data?.jests || [];
+
+
+    // NEW CODE START
+    const getTasks = async () => {
+        //  const { loading, data } = useQuery(QUERY_JESTS);
+        //  const [getCheckout, { data }] = useQuery(QUERY_JESTS);
+        console.log("BIG TEST")
+        console.log(data)
+        // const [removeJest, { error }] = useMutation(REMOVE_JEST);
+
+        const jestData = data?.jests || {};
+        console.log(jestData)
+    };
+
+
+    // create function that accepts the book's mongo _id value as param and deletes the book from the database
+
+    const handleTasks = async (jestId) => {
+        // get token
+        const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+        if (!token) {
+            return false;
+        }
+
+        try {
+            const { data } = await removeJest({
+                variables: { jestId },
+            });
+
+            // upon success, remove book's id from localStorage
+            removeJestId(jestId);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    if (loading) {
+        return <h2>LOADING...</h2>;
+    }
+
     return (
-    <div>
-        <Row className="justify-content-center"> <h1> See the current Jester challenge</h1> </Row>
-       
-        {/* <Row> */}
-        <div md="auto">
-            <Card md="auto" className="text-center">
-                
-            <h2> The Current Task</h2>
+        <>
+            <Jumbotron fluid className="text-light bg-dark">
+                <Container>
+                    <h1>Viewing { }'s Jests!</h1>
+                </Container>
+            </Jumbotron>
+            <Container>
+                <h2>
+                    {userData.savedJests?.length
+                        ? `Viewing ${userData.savedJests.length} saved ${userData.savedJests.length === 1 ? 'Jest' : 'Jests'
+                        }:`
+                        : 'You have no saved Jests!'}
+                </h2>
+                <CardColumns>
+                    {userData.map((jest, i) => {
+                        console.log(jest, i)
+                        return (
+                            <Card key={jest._id} border="dark">
+                                {jest.jestsArray ? (
+                                    <Card.Img
+                                        src={image}
+                                        alt={`The cover for ${jest.caption}`}
+                                        variant="top"
+                                    />
+                                ) : null}
+                                <Card.Body>
+                                    <Card.Title>{jest._id}</Card.Title>
+                                    <p className="small">Jester: {jest.user}</p>
+                                    <Card.Text>{jest.caption}</Card.Text>
+                                    <Button
+                                        className="btn-block btn-danger"
+                                        onClick={() => handleDeleteJest(jest.jestId)}
+                                    >
+                                        Delete this Jest!
+                                    </Button>
+                                </Card.Body>
+                            </Card>
+                        );
 
-            <p>xxxxxxx</p>
-                
-            </Card>
-            <div > 
-               
+                    })}
+                </CardColumns>
+            </Container>
+        </>
+    );
+};
 
-                <Card >
-                    <div className="row no-gutters">
-                        <div className="col-md-6">
-
-                            <Card.Img src= {TestPicture}  />
-                        </div>
-                        <div className="col-md-4">
-                            <div className="card-body" >
-                                <h1 className="card-title">createdBy</h1>
-                                <p className="card-text"> Short jest description</p>
-                                <br />
-                                <p className="card-text">
-                                    <a className="text-muted" href="https://github.com/Mitchell-est-Robbins/Project1-TheAppenders">  Repo</a>
-                                    {/* this needs to be a button ^^^^^^ with redirect */}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </Card>
-
-            </div>          
-        {/* </Row> */}
-        </div>
-    </div>
-    )
-}
-
-export default CurrentJest
+export default CurrentJests
