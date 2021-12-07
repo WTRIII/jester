@@ -6,24 +6,24 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    jests: Jest
+    jests: [Jest]
   }
 
-  type Tasks {
+  type Task {
     _id: ID!
     dateCreated: String
     jestTaskDescription: String
     jestsArray: [Jest]
-    currentTask: String
+    currentTask: Boolean
   }
 
   type Jest {
     _id: ID!
-    createdBy: [User]
+    createdBy: User
     caption: String
     image: String
     likes: Int
-    taskId: Tasks
+    taskId: Task
   }
 
   type Auth {
@@ -41,12 +41,13 @@ const typeDefs = gql`
     user: User
     tasks: [Tasks]
     jests: [Jest]
+    currentTask: Task
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveJest(jestData: JestInput!): Tasks
+    saveJest(jestData: JestInput!): Task
     removeJest(jestId: ID!): User
   }
 `;
