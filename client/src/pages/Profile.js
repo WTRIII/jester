@@ -8,7 +8,7 @@ import {
   } from 'react-bootstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER } from '../utils/queries';
+import { QUERY_USER, QUERY_ALLJESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
 
@@ -16,10 +16,10 @@ import Auth from '../utils/auth';
 import image from '../jester2.jpg';
 
 function Profile() {
-    const { loading, data } = useQuery(QUERY_USER);
-    const [removeJest, { error }] = useMutation(REMOVE_JEST);
+    const { loading, data } = useQuery(QUERY_ALLJESTS);
+    // const [removeJest, { error }] = useMutation(REMOVE_JEST);
   
-    const userData = data?.tasks || {};
+    const userData = data?.allJests || {};
     console.log("hello user world");
     console.log(userData)
   
@@ -33,60 +33,60 @@ function Profile() {
          return false;
        }
   
-       try {
-         const { data } = await removeJest({
-           variables: { jestId },
-         });
+      //  try {
+      //    const { data } = await removeJest({
+      //      variables: { jestId },
+      //    });
   
-         // upon success, remove book's id from localStorage
-         removeJestId(jestId);
-       } catch (err) {
-         console.error(err);
-       }
+      //    // upon success, remove book's id from localStorage
+      //    removeJestId(jestId);
+      //  } catch (err) {
+      //    console.error(err);
+      //  }
      };
   
-    if (loading) {
-      return <h2>LOADING...</h2>;
-    }
+    // if (loading) {
+    //   return <h2>LOADING...</h2>;
+    // }
 
-    //  const {dataUser} = useQuery(QUERY_USER);
-     const users = data?.tasks || [];
+    //  const dataUser = useQuery(QUERY_USER);
+    //  const users = data?.tasks || [];
 
 
     //NEW CODE START
-     const getUser = async () => {
-      //  const { loading, data } = useQuery(QUERY_TASKS);
-      //  const [getCheckout, { data }] = useQuery(QUERY_USER);
-       console.log("BIG TEST")
-       console.log(data)
-       // const [removeJest, { error }] = useMutation(REMOVE_JEST);
+    //  const getUser = async () => {
+    //   //  const { loading, data } = useQuery(QUERY_TASKS);
+    //   //  const [getCheckout, { data }] = useQuery(QUERY_USER);
+    //    console.log("BIG TEST")
+    //    console.log(data)
+    //    // const [removeJest, { error }] = useMutation(REMOVE_JEST);
     
-       const userData = data?.users || {};
-       console.log(userData)
-     };
+    //    const userData = data?.users || {};
+    //    console.log(userData)
+    //  };
     
   
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     
-     const handleTasks = async (jestId) => {
-       // get token
-       const token = Auth.loggedIn() ? Auth.getToken() : null;
+    //  const handleTasks = async (jestId) => {
+    //    // get token
+    //    const token = Auth.loggedIn() ? Auth.getToken() : null;
   
-       if (!token) {
-         return false;
-       }
+    //    if (!token) {
+    //      return false;
+    //    }
   
-       try {
-         const { data } = await removeJest({
-           variables: { jestId },
-         });
+    //    try {
+    //      const { data } = await removeJest({
+    //        variables: { jestId },
+    //      });
   
-         // upon success, remove book's id from localStorage
-         removeJestId(jestId);
-       } catch (err) {
-         console.error(err);
-       }
-     };
+    //      // upon success, remove book's id from localStorage
+    //      removeJestId(jestId);
+    //    } catch (err) {
+    //      console.error(err);
+    //    }
+    //  };
   
      if (loading) {
        return <h2>LOADING...</h2>;
@@ -96,7 +96,7 @@ function Profile() {
       <>
         <Jumbotron fluid className="text-light bg-dark">
           <Container>
-            <h1>Viewing {}'s Jests!</h1>
+            <h1>Viewing {userData.image}'s Jests!</h1>
           </Container>
         </Jumbotron>
         <Container>

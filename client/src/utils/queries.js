@@ -46,17 +46,26 @@ query {
 }
 `;
 
+export const QUERY_ALLJESTS = gql`
+  query {
+    allJests {
+      _id
+      caption
+      image
+      likes
+  }
+}
+`;
+
 export const QUERY_JESTS = gql`
-query {
-  tasks {
-   
-    jestsArray {
+  query {
+    allJests {
+      _id
       caption
       image
       likes
     }
   }
-}
 `;
 
 
