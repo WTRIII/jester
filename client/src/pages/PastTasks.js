@@ -8,15 +8,15 @@ import {
   } from 'react-bootstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_CURRENT_TASK } from '../utils/queries';
+import { QUERY_JESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 import image from '../jester2.jpg';
 
-function CurrentJests() {
-    const { loading, data } = useQuery(QUERY_CURRENT_TASK);
+function PastTasks() {
+    const { loading, data } = useQuery(QUERY_JESTS);
     const [removeJest, { error }] = useMutation(REMOVE_JEST);
   
     const userData = data?.tasks || {};
@@ -140,4 +140,4 @@ function CurrentJests() {
     );
   };
 
-export default CurrentJests
+export default PastTasks
