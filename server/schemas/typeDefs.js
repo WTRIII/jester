@@ -34,8 +34,8 @@ const typeDefs = gql`
 
   input JestInput {
     image: String!
-    username: String!
-    likes: Int
+    caption: String!
+    
   }
 
   type Query {
@@ -51,7 +51,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     saveJest(jestData: JestInput!): Task
     removeJest(jestId: ID!): User
-    newJest(caption: String!, image: String!):Jest
+    newJest(caption: String!, image: String!): Jest
   }
 `;
 
