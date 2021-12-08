@@ -61,8 +61,8 @@ const SignupForm = () => {
     });
 
     
-    window.location.replace('/currenttask');
-
+    // window.location.replace('/CurrentTask'); 
+    // -==============in auth
     
   };
 

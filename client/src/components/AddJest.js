@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { SAVE_JEST } from '../utils/mutations';
+import { NEW_JEST } from '../utils/mutations';
 // ========^^^^ add jest?===============================
 
 import Auth from '../utils/auth';
@@ -26,9 +26,9 @@ const AddJestForm = () => {
     // set state for alert
     const [showAlert, setShowAlert] = useState(false);
 
-    const [addUser, { error }] = useMutation(SAVE_JEST);
+    const [newJest, { error }] = useMutation(NEW_JEST);
     // =======^^what does this do=======add jest?^^^^=============
-    console.log(addUser)
+    
     useEffect(() => {
         if (error) {
             setShowAlert(true);
@@ -54,12 +54,14 @@ const AddJestForm = () => {
         }
 
         try {
-            const { data } = await addUser({
+            console.log(userFormData)
+            const { data } = await newJest({
                 variables: { ...userFormData },
             });
-            console.log(data);
+           console.log(data);
             Auth.login(data.addUser.token);
         } catch (err) {
+            console.log("1234567")
             console.error(err);
         }
 
@@ -78,7 +80,7 @@ const AddJestForm = () => {
         <>
             {/* This is needed for the validation functionality above */}
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-                {/* show alert if server response is bad */}
+                 show alert if server response is bad
                 <Alert
                     dismissible
                     onClose={() => setShowAlert(false)}
@@ -86,7 +88,7 @@ const AddJestForm = () => {
                     variant="danger"
                 >
                     There was a problem with your submission. Please try again.
-                </Alert>
+                </Alert> 
 
                 <Form.Group>
                     <Form.Label htmlFor="caption">Description</Form.Label>
