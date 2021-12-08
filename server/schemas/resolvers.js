@@ -52,6 +52,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+     
     saveJest: async (parent, { jestData }, context) => {
       if (context.user) {
         const updatedUser = await Task.findByIdAndUpdate(
@@ -78,6 +79,10 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    newJest: async (parent, { caption, image } ) => {
+      return await Jest.create({ caption, image});
+     },
   },
 };
 
