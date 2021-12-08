@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
-import { SAVE_JEST } from '../utils/mutations';
+import { NEW_JEST } from '../utils/mutations';
 // ========^^^^ add jest?===============================
 
 import Auth from '../utils/auth';
@@ -26,7 +26,7 @@ const AddJestForm = () => {
     // set state for alert
     const [showAlert, setShowAlert] = useState(false);
 
-    const [addUser, { error }] = useMutation(SAVE_JEST);
+    const [addUser, { error }] = useMutation(NEW_JEST);
     // =======^^what does this do=======add jest?^^^^=============
     console.log(addUser)
     useEffect(() => {

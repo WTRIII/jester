@@ -126,7 +126,7 @@ function PastTasks() {
                       <Card.Title>{jest._id}</Card.Title>
                       <p className="small">Jester: {jest.user}</p>
                       <Card.Text>{jest.caption}</Card.Text>
-                       <Button
+                      <Button
                         className="btn-block btn-danger"
                         onClick={() => handleDeleteJest(jest.jestId)}
                       >
