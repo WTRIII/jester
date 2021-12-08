@@ -68,6 +68,21 @@ export const QUERY_JESTS = gql`
   }
 `;
 
+export const QUERY_PROFILEJESTS = gql`
+  query {
+    profile {
+      _id 
+      username
+      jests{
+        _id
+        caption
+        image
+        likes
+      }
+    }
+  }
+`;
+
 
 
 

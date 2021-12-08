@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './Signup';
 import LoginForm from './Login';
-import AddJest from './AddJest'
+// import AddJest from './AddJest'
 
 import Auth from '../utils/auth';
 import '../App.css';

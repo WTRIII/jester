@@ -8,7 +8,7 @@ import {
   } from 'react-bootstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_ALLJESTS } from '../utils/queries';
+import { QUERY_USER, QUERY_ALLJESTS, QUERY_PROFILEJESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
 
@@ -16,10 +16,10 @@ import Auth from '../utils/auth';
 // import image from '../jester2.jpg';
 
 function Profile() {
-    const { loading, data } = useQuery(QUERY_ALLJESTS);
+    const { loading, data } = useQuery(QUERY_PROFILEJESTS);
     // const [removeJest, { error }] = useMutation(REMOVE_JEST);
   
-    const userData = data?.allJests || {};
+    const userData = data?.profile || {};
     console.log("hello user world");
     console.log(userData)
   
@@ -100,19 +100,19 @@ function Profile() {
           </Container>
         </Jumbotron>
         <Container>
-          <h2>
+          {/* <h2>
             {userData.savedJests?.length
               ? `Viewing ${userData.savedJests.length} saved ${
                   userData.savedJests.length === 1 ? 'Jest' : 'Jests'
                 }:`
               : 'You have no saved Jests!'}
-          </h2>
+          </h2> */}
           <CardColumns>
-            {userData.map((jest, i) => {
+            {userData.jests.map((jest, i) => {
               console.log(jest, i)
                 return (
                   <Card key={jest._id} border="dark">
-                    {jest.jestsArray ? (
+                    {jest.jests ? (
                       <Card.Img
                         src={ jest.image }
                         alt={`The cover for ${jest.caption}`}

@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String!
     password: String!
     jests: [Jest]
+    
   }
 
   type Task {
@@ -42,6 +43,7 @@ const typeDefs = gql`
     tasks: [Task]
     allJests: [Jest]
     currentTask: Task
+    profile: User
   }
 
   type Mutation {
