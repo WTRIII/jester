@@ -5,7 +5,9 @@ import {
     CardColumns,
     Card,
     Button,
+
 } from 'react-bootstrap';
+
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_CURRENT_TASK } from '../utils/queries';
@@ -18,6 +20,7 @@ import image from '../jester2.jpg';
 function CurrentTask() {
     const { loading, data } = useQuery(QUERY_CURRENT_TASK);
     const [removeJest, { error }] = useMutation(REMOVE_JEST);
+
 
     const userData = data?.tasks || {};
     console.log("hello past world");
