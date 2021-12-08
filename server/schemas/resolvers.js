@@ -5,16 +5,23 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
+      console.log(context.user)
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select('-__v -password');
-
+        // const userData = await User.findOne({ _id: '61afd4be83fe1a707887d5be' }).populate('jests');
+        // console.log(userData)
         return userData;
       }
 
-      throw new AuthenticationError('Not logged in');
+      // throw new AuthenticationError('Not logged in');
     },
+    profile: async (parent, args, context)=>{
+      const userData= await User.findOne({_id:context.user._id }).populate('jests').select('-__v -password');
+      return userData;
+    },
+
     tasks: async () => {
-     return await Task.find();
+    return await Task.find();
     },
     allJests: async () => {
       return await Jest.find({});
