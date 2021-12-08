@@ -16,13 +16,13 @@ function Rules() {
       <Container>
           <CardColumns>
               <Card>
-                  Rule 1
+                  Rule 1: Don't talk about Jester. 
               </Card>
               <Card>
-                  Rule 2
+                  Rule 2: Just kidding on rule 1. Tell everyone about Jester. 
               </Card>
               <Card>
-                  Rule 3
+                  Rule 3: Read the challenge. 
               </Card>
               <Card>
                   Rule 4
