@@ -7,6 +7,7 @@ import {
     Button,
 
 } from 'react-bootstrap';
+import "../App.css";
 
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -97,18 +98,19 @@ function CurrentTask() {
 
     return (
         <>
-            <Jumbotron fluid className="text-light bg-dark">
+        <div className="currenttask">
+            <Jumbotron fluid className="jumbotron">
                 <Container>
-                    <h1>Viewing { }'s Jests!</h1>
+                    <h3 className>The task, should you choose to accept it: A ridiculous Christmas sweater</h3>
                 </Container>
             </Jumbotron>
-            <Container>
-                <h2>
+            <Container >
+                <h3>
                     {userData.savedJests?.length
                         ? `Viewing ${userData.savedJests.length} saved ${userData.savedJests.length === 1 ? 'Jest' : 'Jests'
                         }:`
                         : 'You have no saved Jests!'}
-                </h2>
+                </h3>
                 
                 <CardColumns>
                     {userData.map((jest, i) => {
@@ -139,6 +141,7 @@ function CurrentTask() {
                     })}
                 </CardColumns>
             </Container>
+            </div>
         </>
     );
 };

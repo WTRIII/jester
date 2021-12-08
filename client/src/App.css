@@ -3,8 +3,30 @@
 }
 
 .header {
-  background-color: fuchsia;
+  background-color: #ff00ff;
   min-width: 100vw;
+}
+
+h3 {
+  text-align: center;
+  font-family: bookman;
+  font-weight: bolder;
+  font-style: italic;
+  color: #FFFC19;
+}
+
+.brand {
+  font-weight: bolder;
+  font-family: bookman;
+  font-style: italic;
+  font-size: xx-large;
+}
+
+.navLink {
+  font-weight: bolder;
+  font-family: bookman;
+  font-style: italic;
+  font-size: large;
 }
 
 
@@ -12,4 +34,28 @@
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
+  background-color: #7B0DFF;
+}
+
+.rules {
+  color: #19FF5A;
+  background-color: #7B0DFF;
+  min-height: 60vh ;
+  font-family: bookman;
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.currenttask {
+  background-color: #7B0DFF;
+}
+
+.profile {
+  background-color: #7B0DFF;
+}
+
+.jumbotron {
+  background-color: #FF0D0D;
+  color: #FFFC19;
 }

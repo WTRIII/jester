@@ -6,6 +6,7 @@ import {
     Card,
     Button,
   } from 'react-bootstrap';
+  import "../App.css";
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_JESTS } from '../utils/queries';

@@ -6,6 +6,7 @@ import {
     Card,
     Button,
   } from 'react-bootstrap';
+  import "../App.css";
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_JESTS } from '../utils/queries';
@@ -94,12 +95,15 @@ function Profile() {
   
     return (
       <>
-        <Jumbotron fluid className="text-light bg-dark">
+        <div className="profile">
+
+       
+        <Jumbotron fluid className="jumbotron">
           <Container>
-            <h1>Viewing {userData.image}'s Jests!</h1>
+            <h1>Viewing your Jests!</h1>
           </Container>
         </Jumbotron>
-        <Container>
+        <Container className="profile">
           <h2>
             {userData.savedJests?.length
               ? `Viewing ${userData.savedJests.length} saved ${
@@ -136,6 +140,7 @@ function Profile() {
             })}
           </CardColumns>
         </Container>
+        </div>
       </>
     );
   };
