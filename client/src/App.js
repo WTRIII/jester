@@ -10,10 +10,10 @@ import { setContext } from '@apollo/client/link/context';
 
 import MainPage from './pages/Mainpage';
 import CurrentTask from './pages/CurrentTask';
-import PastTasks from './pages/PastTasks';
 import Profile from './pages/Profile';
 import Rules from './pages/Rules';
 import AddJest from './components/AddJest';
+import Header from './components/header';
 
 // import SavedBooks from './pages/SavedBooks';
 import Navbar from './components/Navbar';
@@ -47,12 +47,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
+          <Header />
           <Navbar />
           <AddJest/>
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/CurrentTask" component={CurrentTask} />
-            <Route exact path="/PastTasks" component={PastTasks} />
             <Route exact path="/Profile" component={Profile} />
             <Route exact path="/Rules" component={Rules} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
