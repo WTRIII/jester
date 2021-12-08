@@ -46,7 +46,7 @@ query {
 }
 `;
 
-export const QUERY_ALLJESTS = gql`
+export const QUERY_JESTS = gql`
   query {
     allJests {
       _id
@@ -57,16 +57,16 @@ export const QUERY_ALLJESTS = gql`
 }
 `;
 
-export const QUERY_JESTS = gql`
-  query {
-    allJests {
-      _id
-      caption
-      image
-      likes
-    }
-  }
-`;
+// export const QUERY_JESTS = gql`
+//   query {
+//     allJests {
+//       _id
+//       caption
+//       image
+//       likes
+//     }
+//   }
+// `;
 
 export const QUERY_PROFILEJESTS = gql`
   query {

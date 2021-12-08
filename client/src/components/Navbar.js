@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
+import { Navbar, Nav, Container, Modal, Tab, Row } from 'react-bootstrap';
 import SignUpForm from './Signup';
 import LoginForm from './Login';
 // import AddJest from './AddJest'
@@ -16,6 +16,7 @@ const AppNavbar = () => {
     <div>
       <Navbar expand='lg' className="header">
         <Container fluid>
+          <Row>
           <Navbar.Brand as={Link} to='/'>
             {/* check this for accuracy */}
             Jester
@@ -27,10 +28,9 @@ const AppNavbar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  
                   <Nav.Link as={Link} to='/Profile'>
                     {/* check this for accuracy */}
-                    Profile
+                    PROFILE
                   </Nav.Link>
                   <Nav.Link as={Link} to='/CurrentTask'>
                     {/* check this for accuracy */}
@@ -42,7 +42,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to='/Rules'>
                     {/* check this for accuracy */}
-                    Rules
+                    HOW TO PLAY
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
@@ -51,6 +51,14 @@ const AppNavbar = () => {
               )}
             </Nav>
           </Navbar.Collapse>
+        
+        </Row>
+        <Row>
+          <Nav.Link as={Link} to='/AddJest'>
+                    {/* check this for accuracy */}
+                    JOIN THE CURRENT TASK
+          </Nav.Link>
+        </Row>
         </Container>
       </Navbar>
       {/* set modal data up */}

@@ -54,7 +54,8 @@ const LoginForm = () => {
       password: '',
     });
 
-   window.location.replace('/CurrentTask'); 
+   window.location.replace('/currenttask'); 
+
 
   };
 
