@@ -58,10 +58,12 @@ export const REMOVE_JEST = gql`
 `;
 
 export const NEW_JEST = gql`
-mutation newJest($caption: string!, $image: String!){
+mutation newJest($caption: String!, $image: String!){
   newJest(caption: $caption, image: $image) {
     _id
-    createdBy
+    createdBy{
+      username
+    }
     caption
     image
     likes

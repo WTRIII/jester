@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { Task, User, Jest } = require('../models');
 const { signToken } = require('../utils/auth');
+const mongoose = require('mongoose');
 
 const resolvers = {
   Query: {
@@ -79,10 +80,42 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+    newJest:  async (parent,  jestData , context) => {
+      if (context.user) {
+        const jest = new Jest;
+        jest.caption = jestData.caption;
+        jest.image = jestData.image;
+        jest.likes = 0;
+        
+        jest.save((err) => {
+          if(err) {
+            return err
+          }
+        });
 
-    newJest: async (parent, { caption, image } ) => {
-      return await Jest.create({ caption, image});
-     },
+
+        
+        console.log("this is jest", jest);
+        console.log(mongoose.Types.ObjectId.isValid(context.user._id));
+        console.log(jestData, "hellowwwww")
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { jests: jest } },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    }
+    
+    
+    
+    // newJest: async (parent, { caption, image } ) => {
+    //   console.log("NEW JEST RESOLVER", caption, image);
+    //   return await Jest.create({ caption, image});
+    //  },
   },
 };
 
