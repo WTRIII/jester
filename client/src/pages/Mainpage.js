@@ -1,16 +1,17 @@
 import React from 'react';
-import logo from '../jester1.jpg';
+import logo from '../images/jesterHeader.jpg';
+import { Card } from "react-bootstrap";
 import '../App.css';
 
 function Main() {
     return (
         <div className="main">
-        <h1>Jester</h1>
+        <Card>
 
         <img src={logo}/>
 
 
-        <h3> how to play </h3>
+        </Card>
         </div>
     )
 }

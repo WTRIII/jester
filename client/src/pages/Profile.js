@@ -100,7 +100,7 @@ function Profile() {
        
         <Jumbotron fluid className="jumbotron">
           <Container>
-            <h1>Viewing your Jests!</h1>
+            <h3>Viewing your Jests!</h3>
           </Container>
         </Jumbotron>
 
