@@ -13,14 +13,14 @@ const SignupForm = () => {
     email: '',
     password: '',
   });
-  console.log(userFormData)
+  // console.log(userFormData)
   // set state for form validation
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
   const [addUser, { error }] = useMutation(ADD_USER);
-  console.log(addUser)
+  // console.log(addUser)
   useEffect(() => {
     if (error) {
       setShowAlert(true);
@@ -48,7 +48,7 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData },
       });
-      console.log(data);
+      // console.log(data);
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);

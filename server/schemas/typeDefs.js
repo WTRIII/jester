@@ -37,6 +37,8 @@ const typeDefs = gql`
     caption: String!
     
   }
+  
+ 
 
   type Query {
     user: User
