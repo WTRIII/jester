@@ -23,8 +23,8 @@ function PastTasks() {
     const [removeJest, { error }] = useMutation(REMOVE_JEST);
   
     const userData = data?.tasks || {};
-    console.log("hello past world");
-    console.log(userData)
+    // console.log("hello past world");
+    // console.log(userData)
   
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     
@@ -57,16 +57,16 @@ function PastTasks() {
 
 
     // NEW CODE START
-     const getTasks = async () => {
-      //  const { loading, data } = useQuery(QUERY_JESTS);
-      //  const [getCheckout, { data }] = useQuery(QUERY_JESTS);
-       console.log("BIG TEST")
-       console.log(data)
-       // const [removeJest, { error }] = useMutation(REMOVE_JEST);
+    //  const getTasks = async () => {
+    //   //  const { loading, data } = useQuery(QUERY_JESTS);
+    //   //  const [getCheckout, { data }] = useQuery(QUERY_JESTS);
+    //    console.log("BIG TEST")
+    //    console.log(data)
+    //    // const [removeJest, { error }] = useMutation(REMOVE_JEST);
     
-       const jestData = data?.jests || {};
-       console.log(jestData)
-     };
+    //    const jestData = data?.jests || {};
+    //    console.log(jestData)
+    //  };
     
   
      // create function that accepts the book's mongo _id value as param and deletes the book from the database
@@ -112,7 +112,7 @@ function PastTasks() {
           </h2>  
           <CardColumns>
             {userData.map((jest, i) => {
-              console.log(jest, i)
+              // console.log(jest, i)
                 return (
                   <Card key={jest._id} border="dark">
                     {jest.jestsArray ? (

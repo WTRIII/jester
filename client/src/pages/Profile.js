@@ -18,7 +18,7 @@ import Auth from '../utils/auth';
 
 function Profile() {
     const { loading, data } = useQuery(QUERY_PROFILEJESTS);
-    // const [removeJest, { error }] = useMutation(REMOVE_JEST);
+    const [removeJest, { error }] = useMutation(REMOVE_JEST);
   
     const userData = data?.profile || {};
     console.log("hello user world");
@@ -26,24 +26,30 @@ function Profile() {
   
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     
-    const handleDeleteJest = async (jestId) => {
+    const handleDeleteJest = async (e) => {
+      //console.log("this is my jestId", e.target.getAttribute("data-jestid"))
        // get token
+       console.log("this my event yo", e);
+      // const deletedJest = e.target.getAttribute("data-jestid")
       const token = Auth.loggedIn() ? Auth.getToken() : null;
   
       if (!token) {
         return false;
       }
   
-      //  try {
-      //    const { data } = await removeJest({
-      //      variables: { jestId },
-      //    });
+       try {
+         console.log(error);
+        //  const { data } = await removeJest({
+        //    variables: { jestId },
+        //  });
   
-      //    // upon success, remove book's id from localStorage
-      //    removeJestId(jestId);
-      //  } catch (err) {
-      //    console.error(err);
-      //  }
+         // upon success, remove book's id from localStorage
+          const  { data } = await removeJest({
+            variables: { e },
+          });
+       } catch (err) {
+         console.error(err, "remove error");//causing server 400 error
+       }
     };
   
     // if (loading) {
@@ -107,18 +113,18 @@ function Profile() {
         <Container className="profile">
           <h2>
 
-            {userData.savedJests?.length
-              ? `Viewing ${userData.savedJests.length} saved ${
-                  userData.savedJests.length === 1 ? 'Jest' : 'Jests'
+            {userData.jests?.length
+              ? `Viewing ${userData.jests.length} saved ${
+                  userData.jests.length === 1 ? 'Jest' : 'Jests'
                 }:`
               : 'You have no saved Jests!'}
-           </h2>
+          </h2>
           <CardColumns>
             {userData.jests.map((jest, i) => {
               console.log(jest, i)
                 return (
                   <Card key={jest._id} border="dark">
-                    {jest.jests ? (
+                    {jest ? (
                       <Card.Img
                         src={ jest.image }
                         alt={`The cover for ${jest.caption}`}
@@ -126,12 +132,12 @@ function Profile() {
                       />
                     ) : null}
                     <Card.Body>
-                      <Card.Title>{jest._id}</Card.Title>
-                      <p className="small">Jester: {jest.user}</p>
-                      <Card.Text>{jest.caption}</Card.Text>
+                      <Card.Title>{jest.caption}</Card.Title>
+                      <Card.Text>{jest.likes}</Card.Text>
                       <Button
+                        data-jestid={jest._id}
                         className="btn-block btn-danger"
-                        onClick={() => handleDeleteJest(jest.jestId)}
+                        onClick={(e) => handleDeleteJest(e.target.getAttribute("data-jestid"))}
                       >
                         Delete this Jest!
                       </Button>

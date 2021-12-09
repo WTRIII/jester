@@ -20,7 +20,7 @@ const AddJestForm = () => {
         image: '',
         
     });
-    console.log(userFormData)
+   
     // set state for form validation
     const [validated] = useState(false);
     // set state for alert
@@ -54,14 +54,14 @@ const AddJestForm = () => {
         }
 
         try {
-            console.log(userFormData)
+            //console.log(userFormData)
             const { data } = await newJest({
                 variables: { ...userFormData },
             });
-           console.log(data);
+        //    console.log(data);
             Auth.login(data.addUser.token);
         } catch (err) {
-            console.log("1234567")
+            // console.log("1234567")
             console.error(err);
         }
 

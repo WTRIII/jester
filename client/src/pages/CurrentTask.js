@@ -11,7 +11,7 @@ import "../App.css";
 
 
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_CURRENT_TASK } from '../utils/queries';
+import { QUERY_JESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
 
@@ -19,13 +19,13 @@ import Auth from '../utils/auth';
 import image from '../jester2.jpg';
 
 function CurrentTask() {
-    const { loading, data } = useQuery(QUERY_CURRENT_TASK);
+    const { loading, data } = useQuery(QUERY_JESTS);
     const [removeJest, { error }] = useMutation(REMOVE_JEST);
 
 
-    const userData = data?.tasks || {};
-    console.log("hello past world");
-    console.log(userData)
+    const userData = data?.allJests || {};
+    // console.log("hello past world");
+    // console.log(userData)
 
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
 
@@ -54,20 +54,20 @@ function CurrentTask() {
     }
 
     //  const { jestData } = useQuery(QUERY_JESTS);
-    const jests = data?.jests || [];
+    // const jests = data?.jests || [];
 
 
     // NEW CODE START
-    const getTasks = async () => {
-        //  const { loading, data } = useQuery(QUERY_JESTS);
-        //  const [getCheckout, { data }] = useQuery(QUERY_JESTS);
-        console.log("BIG TEST")
-        console.log(data)
-        // const [removeJest, { error }] = useMutation(REMOVE_JEST);
+    // const getTasks = async () => {
+    //     //  const { loading, data } = useQuery(QUERY_JESTS);
+    //     //  const [getCheckout, { data }] = useQuery(QUERY_JESTS);
+    //     console.log("BIG TEST")
+    //     console.log(data)
+    //     // const [removeJest, { error }] = useMutation(REMOVE_JEST);
 
-        const jestData = data?.jests || {};
-        console.log(jestData)
-    };
+    //     const jestData = data?.jests || {};
+    //     console.log(jestData)
+    // };
 
 
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
@@ -117,23 +117,18 @@ function CurrentTask() {
                         console.log(jest, i)
                         return (
                             <Card key={jest._id} border="dark">
-                                {jest.jestsArray ? (
+                                {jest.image ? (
                                     <Card.Img
-                                        src={image}
+                                        src={jest.image}
                                         alt={`The cover for ${jest.caption}`}
                                         variant="top"
                                     />
                                 ) : null}
                                 <Card.Body>
-                                    <Card.Title>{jest._id}</Card.Title>
-                                    <p className="small">Jester: {jest.user}</p>
+                                    <Card.Title>{jest.jestTaskDescription}</Card.Title>
                                     <Card.Text>{jest.caption}</Card.Text>
-                                    <Button
-                                        className="btn-block btn-danger"
-                                        onClick={() => handleDeleteJest(jest.jestId)}
-                                    >
-                                        Delete this Jest!
-                                    </Button>
+                                    <p>likes: {jest.likes}</p>
+                                   
                                 </Card.Body>
                             </Card>
                         );
