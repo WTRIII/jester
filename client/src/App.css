@@ -74,7 +74,16 @@ h3 {
   background-color: #4F0359;
   color: #F2B441;
 }
-
+.newJest {
+  color:#F2B441;
+}
+.jestBtn {
+  color:#F2B441;
+}
+.jestsTitle {
+  color: #F2B441;
+  text-align: center;
+}
 
 /* ========================================================= */
 .headercard{
