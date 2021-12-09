@@ -14,6 +14,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_JESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
 import { removeJestId } from '../utils/localStorage';
+import AddJest from '../components/AddJest';
 
 import Auth from '../utils/auth';
 import image from '../jester2.jpg';
@@ -99,6 +100,7 @@ function CurrentTask() {
     return (
         <>
         <div className="currenttask">
+            <AddJest/>
             <Jumbotron fluid className="jumbotron">
                 <Container>
                     <h3 className>The task, should you choose to accept it: A ridiculous Christmas sweater</h3>

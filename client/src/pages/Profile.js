@@ -7,6 +7,7 @@ import {
     Button,
   } from 'react-bootstrap';
   import "../App.css";
+  import AddJest from '../components/AddJest';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ALLJESTS, QUERY_PROFILEJESTS } from '../utils/queries';
@@ -43,6 +44,8 @@ function Profile() {
       });
       console.log("========================inside try")
 
+      window.location.reload(false);
+
       // upon success, remove book's id from localStorage
       //  removeJestId(jestId);
     } catch (err) {
@@ -51,48 +54,6 @@ function Profile() {
     }
   };
 
-    // if (loading) {
-    //   return <h2>LOADING...</h2>;
-    // }
-
-    //  const dataUser = useQuery(QUERY_USER);
-    //  const users = data?.tasks || [];
-
-
-    //NEW CODE START
-    //  const getUser = async () => {
-    //   //  const { loading, data } = useQuery(QUERY_TASKS);
-    //   //  const [getCheckout, { data }] = useQuery(QUERY_USER);
-    //    console.log("BIG TEST")
-    //    console.log(data)
-    //    // const [removeJest, { error }] = useMutation(REMOVE_JEST);
-    
-    //    const userData = data?.users || {};
-    //    console.log(userData)
-    //  };
-    
-  
-    // create function that accepts the book's mongo _id value as param and deletes the book from the database
-    
-    //  const handleTasks = async (jestId) => {
-    //    // get token
-    //    const token = Auth.loggedIn() ? Auth.getToken() : null;
-  
-    //    if (!token) {
-    //      return false;
-    //    }
-  
-    //    try {
-    //      const { data } = await removeJest({
-    //        variables: { jestId },
-    //      });
-  
-    //      // upon success, remove book's id from localStorage
-    //      removeJestId(jestId);
-    //    } catch (err) {
-    //      console.error(err);
-    //    }
-    //  };
   
      if (loading) {
        return <h2>LOADING...</h2>;
@@ -102,7 +63,7 @@ function Profile() {
       <>
         <div className="profile">
 
-       
+        <AddJest/>
         <Jumbotron fluid className="jumbotron">
           <Container>
             <h3>Viewing your Jests!</h3>

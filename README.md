@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Jester App
+
+### This is a social app in which users are given a task to complete in a certain period of time. Users sign up by creating an account. To complete the challenge, the take a pic of the task and upload it to the app. Users can see all of the submissions for a task, and can see the tasks their own submission in their profile page. 
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -65,6 +69,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
