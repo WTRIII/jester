@@ -26,10 +26,10 @@ function Profile() {
   
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     
-    const handleDeleteJest = async (e) => {
+    const handleDeleteJest = async (jestId) => {
       //console.log("this is my jestId", e.target.getAttribute("data-jestid"))
        // get token
-       console.log("this my event yo", e);
+      
       // const deletedJest = e.target.getAttribute("data-jestid")
       const token = Auth.loggedIn() ? Auth.getToken() : null;
       // console.log("====================",token)
