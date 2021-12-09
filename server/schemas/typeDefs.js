@@ -50,7 +50,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveJest(jestData: JestInput!): Task
-    removeJest(jestId: ID!): User
+    removeJest(jestId: ID!): Jest
     newJest(caption: String!, image: String!): Jest
   }
 `;

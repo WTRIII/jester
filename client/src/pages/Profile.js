@@ -11,14 +11,14 @@ import {
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ALLJESTS, QUERY_PROFILEJESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
-import { removeJestId } from '../utils/localStorage';
+// import { removeJestId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 // import image from '../jester2.jpg';
 
 function Profile() {
     const { loading, data } = useQuery(QUERY_PROFILEJESTS);
-    // const [removeJest, { error }] = useMutation(REMOVE_JEST);
+    const [removeJest, { error }] = useMutation(REMOVE_JEST);
   
     const userData = data?.profile || {};
     console.log("hello user world");
@@ -29,23 +29,25 @@ function Profile() {
     const handleDeleteJest = async (jestId) => {
        // get token
       const token = Auth.loggedIn() ? Auth.getToken() : null;
-  
+      // console.log("====================",token)
       if (!token) {
         return false;
       }
-  
-      //  try {
-      //    const { data } = await removeJest({
-      //      variables: { jestId },
-      //    });
-  
-      //    // upon success, remove book's id from localStorage
-      //    removeJestId(jestId);
-      //  } catch (err) {
-      //    console.error(err);
-      //  }
-    };
-  
+      // console.log("REMOVE =============", removeJest)
+    try {
+      await removeJest({
+        variables: {_id: jestId }
+      });
+      console.log("========================inside try")
+
+      // upon success, remove book's id from localStorage
+      //  removeJestId(jestId);
+    } catch (err) {
+      console.log("==============================OUTSIDE TRY")
+      console.error(err);
+    }
+  };
+
     // if (loading) {
     //   return <h2>LOADING...</h2>;
     // }
@@ -131,7 +133,7 @@ function Profile() {
                       <Card.Text>{jest.caption}</Card.Text>
                       <Button
                         className="btn-block btn-danger"
-                        onClick={() => handleDeleteJest(jest.jestId)}
+                        onClick={() => handleDeleteJest(jest._id)}
                       >
                         Delete this Jest!
                       </Button>
