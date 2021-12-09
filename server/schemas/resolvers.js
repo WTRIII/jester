@@ -30,6 +30,7 @@ const resolvers = {
   },
 
   Mutation: {
+    //adding new user
     addUser: async (parent, args) => {
      
       const user = await User.create(args);
@@ -37,6 +38,7 @@ const resolvers = {
 
       return { token, user };
     },
+    //verifiying user logged in
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
@@ -53,34 +55,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-     
-    saveJest: async (parent, { jestData }, context) => {
-      if (context.user) {
-        const updatedUser = await Task.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedJests: jestData } },
-          { new: true }
-        );
-
-        return updatedUser;
-      }
-
-      throw new AuthenticationError('You need to be logged in!');
-    },
-    removeJest: async (parent,  jestId , context) => {
-      console.log("this is my jestID", jestId);
-      console.log(context.user);
-      if (context.user) {
-        console.log(jestId);
-        const updatedJest = await Jest.findByIdAndDelete(
-          { _id: jestId }
-        );
-
-        return updatedJest;
-      }
-
-      throw new AuthenticationError('You need to be logged in!');
-    },
+ 
     newJest:  async (parent,  jestData , context) => {
       if (context.user) {
         const jest = new Jest;
@@ -94,10 +69,6 @@ const resolvers = {
           }
         });
 
-
-        
-        // console.log("this is jest", jest);
-        // console.log(jestData, "hellowwwww")
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $push: { jests: jest } },
@@ -112,22 +83,15 @@ const resolvers = {
     
     removeJest: async (parent,  jestData , context) => {
 
-      console.log(jestData)
-      console.log("outside the if")
-      if (context.user) {
-        console.log("inside the if")
+     if (context.user) {
+       
         const deletedjest = await Jest.findOneAndDelete(
           { _id: jestData.jestId },
-          
         );
         return deletedjest;
       }
     }
     
-    // newJest: async (parent, { caption, image } ) => {
-    //   console.log("NEW JEST RESOLVER", caption, image);
-    //   return await Jest.create({ caption, image});
-    //  },
   },
 };
 
