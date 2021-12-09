@@ -27,7 +27,10 @@ function Profile() {
     // create function that accepts the book's mongo _id value as param and deletes the book from the database
     
     const handleDeleteJest = async (jestId) => {
+      //console.log("this is my jestId", e.target.getAttribute("data-jestid"))
        // get token
+      
+      // const deletedJest = e.target.getAttribute("data-jestid")
       const token = Auth.loggedIn() ? Auth.getToken() : null;
       // console.log("====================",token)
       if (!token) {
@@ -109,18 +112,18 @@ function Profile() {
         <Container className="profile">
           <h2>
 
-            {userData.savedJests?.length
-              ? `Viewing ${userData.savedJests.length} saved ${
-                  userData.savedJests.length === 1 ? 'Jest' : 'Jests'
+            {userData.jests?.length
+              ? `Viewing ${userData.jests.length} saved ${
+                  userData.jests.length === 1 ? 'Jest' : 'Jests'
                 }:`
               : 'You have no saved Jests!'}
-           </h2>
+          </h2>
           <CardColumns>
             {userData.jests.map((jest, i) => {
               console.log(jest, i)
                 return (
                   <Card key={jest._id} border="dark">
-                    {jest.jests ? (
+                    {jest ? (
                       <Card.Img
                         src={ jest.image }
                         alt={`The cover for ${jest.caption}`}
@@ -128,10 +131,10 @@ function Profile() {
                       />
                     ) : null}
                     <Card.Body>
-                      <Card.Title>{jest._id}</Card.Title>
-                      <p className="small">Jester: {jest.user}</p>
-                      <Card.Text>{jest.caption}</Card.Text>
+                      <Card.Title>{jest.caption}</Card.Title>
+                      <Card.Text>{jest.likes}</Card.Text>
                       <Button
+                        data-jestid={jest._id}
                         className="btn-block btn-danger"
                         onClick={() => handleDeleteJest(jest._id)}
                       >
