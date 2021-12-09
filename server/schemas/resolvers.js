@@ -108,8 +108,26 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    
+    removeJest: async (parent,  jestData , context) => {
+
+      console.log(jestData)
+      console.log("outside the if")
+      if (context.user) {
+        console.log("inside the if")
+        const deletedjest = await Jest.findOneAndDelete(
+          { _id: jestData.jestId },
+          
+        );
+        return deletedjest;
+      }
     }
     
+    // newJest: async (parent, { caption, image } ) => {
+    //   console.log("NEW JEST RESOLVER", caption, image);
+    //   return await Jest.create({ caption, image});
+    //  },
   },
 };
 

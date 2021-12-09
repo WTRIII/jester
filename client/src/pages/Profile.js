@@ -11,7 +11,7 @@ import {
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ALLJESTS, QUERY_PROFILEJESTS } from '../utils/queries';
 import { REMOVE_JEST } from '../utils/mutations';
-import { removeJestId } from '../utils/localStorage';
+// import { removeJestId } from '../utils/localStorage';
 
 import Auth from '../utils/auth';
 // import image from '../jester2.jpg';
@@ -32,26 +32,25 @@ function Profile() {
        console.log("this my event yo", e);
       // const deletedJest = e.target.getAttribute("data-jestid")
       const token = Auth.loggedIn() ? Auth.getToken() : null;
-  
+      // console.log("====================",token)
       if (!token) {
         return false;
       }
-  
-       try {
-         console.log(error);
-        //  const { data } = await removeJest({
-        //    variables: { jestId },
-        //  });
-  
-         // upon success, remove book's id from localStorage
-          const  { data } = await removeJest({
-            variables: { e },
-          });
-       } catch (err) {
-         console.error(err, "remove error");//causing server 400 error
-       }
-    };
-  
+      // console.log("REMOVE =============", removeJest)
+    try {
+      await removeJest({
+        variables: {_id: jestId }
+      });
+      console.log("========================inside try")
+
+      // upon success, remove book's id from localStorage
+      //  removeJestId(jestId);
+    } catch (err) {
+      console.log("==============================OUTSIDE TRY")
+      console.error(err);
+    }
+  };
+
     // if (loading) {
     //   return <h2>LOADING...</h2>;
     // }
@@ -106,7 +105,7 @@ function Profile() {
        
         <Jumbotron fluid className="jumbotron">
           <Container>
-            <h1>Viewing your Jests!</h1>
+            <h3>Viewing your Jests!</h3>
           </Container>
         </Jumbotron>
 
@@ -137,7 +136,7 @@ function Profile() {
                       <Button
                         data-jestid={jest._id}
                         className="btn-block btn-danger"
-                        onClick={(e) => handleDeleteJest(e.target.getAttribute("data-jestid"))}
+                        onClick={() => handleDeleteJest(jest._id)}
                       >
                         Delete this Jest!
                       </Button>

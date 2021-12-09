@@ -43,8 +43,9 @@ export const SAVE_JEST = gql`
 
 export const REMOVE_JEST = gql`
 mutation removeJest($_id: ID!){
-  removeJest(_id: $_id) {
+  removeJest(jestId: $_id) {
     _id
+  
   }
 }
 `;

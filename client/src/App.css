@@ -3,8 +3,12 @@
 }
 
 .header {
-  background-color: #ff00ff;
-  min-width: 100vw;
+  background-color: #1E0126;
+ 
+}
+
+.navbar {
+  background-color: #F2B441;
 }
 
 h3 {
@@ -12,7 +16,7 @@ h3 {
   font-family: bookman;
   font-weight: bolder;
   font-style: italic;
-  color: #FFFC19;
+  color: #F2B441;
 }
 
 .brand {
@@ -20,6 +24,7 @@ h3 {
   font-family: bookman;
   font-style: italic;
   font-size: xx-large;
+  color: #4F0359;
 }
 
 .navLink {
@@ -34,12 +39,13 @@ h3 {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
-  background-color: #7B0DFF;
+  background-color: #1E0126;
+  min-height: 80vh;
 }
 
 .rules {
   color: #19FF5A;
-  background-color: #7B0DFF;
+  background-color: #1E0126;
   min-height: 60vh ;
   font-family: bookman;
   font-style: italic;
@@ -47,15 +53,28 @@ h3 {
   text-align: center;
 }
 
+.rulecard {
+  background-color: #18B532;
+  color:#4F0359;
+}
+
 .currenttask {
-  background-color: #7B0DFF;
+  background-color: #1E0126;
+  min-height: 40vh;
 }
 
 .profile {
-  background-color: #7B0DFF;
+  background-color: #1E0126;
+  min-height: 50vh;
 }
 
 .jumbotron {
-  background-color: #FF0D0D;
-  color: #FFFC19;
+  background-color: #4F0359;
+  color: #F2B441;
+}
+
+
+/* ========================================================= */
+.headercard{
+max-height: 90px;
 }

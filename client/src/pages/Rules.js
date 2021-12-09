@@ -5,34 +5,33 @@ import "../App.css";
 function Rules() {
   return (
     <>
-    <div className="rules">
-
-   
-      <Jumbotron className="jumbotron">
+      <div className="rules">
+        <Jumbotron className="jumbotron">
+          <Container>
+            <h1>How to play Jester</h1>
+          </Container>
+        </Jumbotron>
         <Container>
-          <h1 >Jester Rules</h1>
-        </Container>
-      </Jumbotron>
-      <Container>
           <CardColumns>
-              <Card>
-                  Rule 1
-              </Card>
-              <Card>
-                  Rule 2
-              </Card>
-              <Card>
-                  Rule 3
-              </Card>
-              <Card>
-                  Rule 4
-              </Card>
-              <Card>
-                  Rule 5
-              </Card>
+            <Card className="rulecard">
+              <Card.Title>Rule 1:</Card.Title>. Don't talk about Jester.
+            </Card>
+            <Card className="rulecard">
+              <Card.Title>Rule 2:</Card.Title>
+              Just kidding on rule 1. Tell everyone about Jester.
+            </Card>
+            <Card className="rulecard">
+              <Card.Title>Rule 3: Read the challenge.</Card.Title>
+            </Card>
+            <Card className="rulecard">
+              <Card.Title>Rule 4</Card.Title>
+            </Card>
+            <Card className="rulecard">
+              <Card.Title>Rule 5</Card.Title>
+            </Card>
           </CardColumns>
-      </Container>
-      {/* 4 cards of blah blah blah */}
+        </Container>
+        {/* 4 cards of blah blah blah */}
       </div>
     </>
   );
