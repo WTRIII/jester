@@ -49,7 +49,7 @@ function App() {
         <>
           <Header />
           <Navbar />
-          <AddJest/>
+          
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route exact path="/CurrentTask" component={CurrentTask} />

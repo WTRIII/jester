@@ -7,6 +7,7 @@ import {
     Button,
   } from 'react-bootstrap';
   import "../App.css";
+  import AddJest from '../components/AddJest';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ALLJESTS, QUERY_PROFILEJESTS } from '../utils/queries';
@@ -97,7 +98,7 @@ function Profile() {
       <>
         <div className="profile">
 
-       
+        <AddJest/>
         <Jumbotron fluid className="jumbotron">
           <Container>
             <h3>Viewing your Jests!</h3>
