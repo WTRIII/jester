@@ -60,10 +60,13 @@ const AddJestForm = () => {
              });
             console.log(data);
              Auth.login(data.addUser.token);
+
          } catch (err) {
              console.log("1234567")
              console.error(err);
          }
+
+         window.location.reload(false);
 
          setUserFormData({
              caption: '',
@@ -82,13 +85,6 @@ const AddJestForm = () => {
             width: 700, 
             padding: 30 }}>
 
-            <Dropdown>
-            <Dropdown.Toggle variant="success">
-                    Click to add Jest
-            </Dropdown.Toggle>
-            <Dropdown.Item>
-
-            
 
              {/* This is needed for the validation functionality above */}
              <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -146,8 +142,7 @@ const AddJestForm = () => {
                      Submit Jest!
                  </Button>
              </Form>
-             </Dropdown.Item>
-             </Dropdown>
+
              </div>
          </>
      );
