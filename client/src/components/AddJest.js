@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, Card } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { NEW_JEST } from '../utils/mutations';
@@ -78,6 +78,8 @@ const AddJestForm = () => {
 
     return (
         <>
+        <div className="col-md-5">
+            <Card className="col-md-5">
             {/* This is needed for the validation functionality above */}
             <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
                  show alert if server response is bad
@@ -134,6 +136,8 @@ const AddJestForm = () => {
                     Submit Jest!
                 </Button>
             </Form>
+            </Card>
+            </div>
         </>
     );
 };
