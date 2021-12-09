@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert, Dropdown } from 'react-bootstrap';
+//*removed dropdown import*
+import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { NEW_JEST } from '../utils/mutations';
@@ -7,11 +8,8 @@ import { NEW_JEST } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-//SignupForm to AddJestForm
-// username=caption
-//  email=image
 
-// caption, image, (user id from me?) (task=true?)
+
 
 const AddJestForm = () => {
      // set initial form state
@@ -20,14 +18,14 @@ const AddJestForm = () => {
          image: '',
         
      });
-     console.log(userFormData)
+    
      // set state for form validation
      const [validated] = useState(false);
      // set state for alert
      const [showAlert, setShowAlert] = useState(false);
 
      const [newJest, { error }] = useMutation(NEW_JEST);
-     // =======^^what does this do=======add jest?^^^^=============
+     
     
      useEffect(() => {
          if (error) {
@@ -39,7 +37,7 @@ const AddJestForm = () => {
 
      const handleInputChange = (event) => {
          const { name, value } = event.target;
-         //======^^^ name is what
+        
          setUserFormData({ ...userFormData, [name]: value });
      };
 
@@ -65,7 +63,7 @@ const AddJestForm = () => {
              console.log("1234567")
              console.error(err);
          }
-
+         //refresh page after new jest is submitted
          window.location.reload(false);
 
          setUserFormData({
@@ -74,21 +72,19 @@ const AddJestForm = () => {
          });
 
 
-         // window.location.replace('/CurrentTask');   ============
-         // =====================do we want to redirect=========
-
+     
      };
 
      return (
          <>    
-            <div style={{ display: 'block', 
+            <div className="newJest" style={{ display: 'block', 
             width: 700, 
             padding: 30 }}>
 
 
              {/* This is needed for the validation functionality above */}
              <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-                  show alert if server response is bad
+                 
                  <Alert
                      dismissible
                      onClose={() => setShowAlert(false)}
@@ -138,6 +134,7 @@ const AddJestForm = () => {
                      }
                      type="submit"
                      variant="success"
+                     className="jestBtn"
                  >
                      Submit Jest!
                  </Button>

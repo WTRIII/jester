@@ -25,10 +25,7 @@ function CurrentTask() {
 
 
     const userData = data?.allJests || {};
-    // console.log("hello past world");
-    // console.log(userData)
-
-    // create function that accepts the book's mongo _id value as param and deletes the book from the database
+    console.log("================myuserdata=========", userData);
 
     const handleDeleteJest = async (jestId) => {
         // get token
@@ -43,7 +40,6 @@ function CurrentTask() {
                 variables: { jestId },
             });
 
-            // upon success, remove book's id from localStorage
             removeJestId(jestId);
         } catch (err) {
             console.error(err);
@@ -54,24 +50,7 @@ function CurrentTask() {
         return <h2>LOADING...</h2>;
     }
 
-    //  const { jestData } = useQuery(QUERY_JESTS);
-    // const jests = data?.jests || [];
 
-
-    // NEW CODE START
-    // const getTasks = async () => {
-    //     //  const { loading, data } = useQuery(QUERY_JESTS);
-    //     //  const [getCheckout, { data }] = useQuery(QUERY_JESTS);
-    //     console.log("BIG TEST")
-    //     console.log(data)
-    //     // const [removeJest, { error }] = useMutation(REMOVE_JEST);
-
-    //     const jestData = data?.jests || {};
-    //     console.log(jestData)
-    // };
-
-
-    // create function that accepts the book's mongo _id value as param and deletes the book from the database
 
     const handleTasks = async (jestId) => {
         // get token
@@ -103,15 +82,15 @@ function CurrentTask() {
             <AddJest/>
             <Jumbotron fluid className="jumbotron">
                 <Container>
-                    <h3 className>The task, should you choose to accept it: A ridiculous Christmas sweater</h3>
+                    <h3>The task, should you choose to accept it: A ridiculous Christmas sweater</h3>
                 </Container>
             </Jumbotron>
             <Container >
                 <h3>
-                    {userData.savedJests?.length
-                        ? `Viewing ${userData.savedJests.length} saved ${userData.savedJests.length === 1 ? 'Jest' : 'Jests'
+                    {userData.length?
+                         `Viewing ${userData.length}  ${userData.length === 1 ? 'submission' : 'submissions'
                         }:`
-                        : 'You have no saved Jests!'}
+                        : 'You have no saved submissions!'}
                 </h3>
                 
                 <CardColumns>
