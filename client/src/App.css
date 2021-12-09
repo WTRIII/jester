@@ -3,8 +3,35 @@
 }
 
 .header {
-  background-color: fuchsia;
-  min-width: 100vw;
+  background-color: #1E0126;
+ 
+}
+
+.navbar {
+  background-color: #F2B441;
+}
+
+h3 {
+  text-align: center;
+  font-family: bookman;
+  font-weight: bolder;
+  font-style: italic;
+  color: #F2B441;
+}
+
+.brand {
+  font-weight: bolder;
+  font-family: bookman;
+  font-style: italic;
+  font-size: xx-large;
+  color: #4F0359;
+}
+
+.navLink {
+  font-weight: bolder;
+  font-family: bookman;
+  font-style: italic;
+  font-size: large;
 }
 
 
@@ -12,4 +39,42 @@
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-style: italic;
+  background-color: #1E0126;
+  min-height: 80vh;
+}
+
+.rules {
+  color: #19FF5A;
+  background-color: #1E0126;
+  min-height: 60vh ;
+  font-family: bookman;
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.rulecard {
+  background-color: #18B532;
+  color:#4F0359;
+}
+
+.currenttask {
+  background-color: #1E0126;
+  min-height: 40vh;
+}
+
+.profile {
+  background-color: #1E0126;
+  min-height: 50vh;
+}
+
+.jumbotron {
+  background-color: #4F0359;
+  color: #F2B441;
+}
+
+
+/* ========================================================= */
+.headercard{
+max-height: 90px;
 }

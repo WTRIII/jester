@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 
 // import schema from Jest.js
-const jestSchema = require('./Jest');
+// const jestSchema = require('./Jest');
 
 const taskSchema = new Schema(
   {
@@ -16,7 +16,12 @@ const taskSchema = new Schema(
       
     },
      // set jests to be an array of data that adheres to the jestSchema
-    jestsArray: [jestSchema],
+     jests: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Jest"
+      }
+    ],
     //true/false is this the current active task
     currentTask: {
       type: Boolean,
@@ -27,11 +32,11 @@ const taskSchema = new Schema(
     
   },
   // set this to use virtual below
-  {
-    toJSON: {
-      virtuals: true,
-    },
-  }
+  // {
+  //   toJSON: {
+  //     virtuals: true,
+  //   },
+  // }
 );
 
 
@@ -40,9 +45,9 @@ const taskSchema = new Schema(
 
 
 // when we query a task, we'll also get another field called `jestCount` with the number of saved jests we have
-taskSchema.virtual('jestCount').get(function () {
-  return this.jestsArray.length;
-});
+// Task.virtual('jestCount').get(function () {
+//   return this.jests.length;
+// });
 
 const Task = model('Task', taskSchema);
 
