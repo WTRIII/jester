@@ -42,19 +42,12 @@ export const SAVE_JEST = gql`
 `;
 
 export const REMOVE_JEST = gql`
-  mutation removeJEST($jestId: ID!) {
-    removeJest(jestId: $jestId) {
-      _id
-      username
-      email
-      savedJests {
-        jestId
-        username
-        image
-        caption
-      }
-    }
+mutation removeJest($_id: ID!){
+  removeJest(jestId: $_id) {
+    _id
+  
   }
+}
 `;
 
 export const NEW_JEST = gql`
@@ -70,3 +63,17 @@ mutation newJest($caption: String!, $image: String!){
   }
 }
 `;
+
+// export const DELETE_JEST = gql`
+// mutation deleteJest($jestId: ID!){
+//   deleteJest(jestId: $jestId) {
+//     _id
+//     createdBy{
+//       username
+//     }
+//     caption
+//     image
+//     likes
+//   }
+// }
+// `;

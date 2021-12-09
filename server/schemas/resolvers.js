@@ -14,7 +14,7 @@ const resolvers = {
         return userData;
       }
 
-      // throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError('Not logged in');
     },
     profile: async (parent, args, context)=>{
       const userData= await User.findOne({_id:context.user._id }).populate('jests').select('-__v -password');
@@ -67,15 +67,16 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeJest: async (parent, { jestId }, context) => {
+    removeJest: async (parent,  jestId , context) => {
+      console.log("this is my jestID", jestId);
+      console.log(context.user);
       if (context.user) {
-        const updatedUser = await Task.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedJests: { jestId } } },
-          { new: true }
+        console.log(jestId);
+        const updatedJest = await Jest.findByIdAndDelete(
+          { _id: jestId }
         );
 
-        return updatedUser;
+        return updatedJest;
       }
 
       throw new AuthenticationError('You need to be logged in!');
@@ -95,9 +96,8 @@ const resolvers = {
 
 
         
-        console.log("this is jest", jest);
-        console.log(mongoose.Types.ObjectId.isValid(context.user._id));
-        console.log(jestData, "hellowwwww")
+        // console.log("this is jest", jest);
+        // console.log(jestData, "hellowwwww")
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
           { $push: { jests: jest } },
@@ -108,9 +108,21 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    
+    removeJest: async (parent,  jestData , context) => {
+
+      console.log(jestData)
+      console.log("outside the if")
+      if (context.user) {
+        console.log("inside the if")
+        const deletedjest = await Jest.findOneAndDelete(
+          { _id: jestData.jestId },
+          
+        );
+        return deletedjest;
+      }
     }
-    
-    
     
     // newJest: async (parent, { caption, image } ) => {
     //   console.log("NEW JEST RESOLVER", caption, image);
